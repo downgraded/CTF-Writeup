@@ -39,9 +39,11 @@ Rather than using `1=1` as our conditional, we can use SUBSTRING() to test if th
 
 The payload for extracting the first character of the database name is `' + (SELECT IF(SUBSTRING(database(),1,1)='a',1/0,1)) + '`.
   * SUBSTRING('abc', 1, 1) will return 'a', substring('abc', 2, 1) will return 'b', etc.
-  * We can iterate through every printable character to replace 'a' until our conditional statement is true, and then we move to the second character and repeat the process until the flag is done.
+  * We can iterate through every printable character to replace 'a' until our conditional statement is true, triggering a `Divison by 0` error. Then we move to the next character of the database name and repeat the process until the flag is fully extracted.
 
 There is no reason to do all of this by hand, so I wrote a quick (and ugly) python script to automate this process.
+
+[exploit.py](exploit.py)
 
 
 ## The Real Solution
