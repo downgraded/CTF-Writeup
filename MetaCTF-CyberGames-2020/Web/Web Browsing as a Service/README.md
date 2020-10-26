@@ -31,7 +31,7 @@ of the same address `http://[::1]` will make the webpage return itself.
 ![IPv6 loopback address working](https://i.imgur.com/Ssa76kc.png)
 
 From this point, it is just a matter of finding the correct port for the flag. As there are 65,535 ports, there is no reason
-to ever attempt to do this manually. I quickly wrote a python script to scan all of the ports.
+to ever attempt to do this manually. I quickly wrote a [python script](scan.py) to scan all of the ports.
 
 As the length of the base website's response without returning another website has a length of `445`, anything with a differing 
 length should mean that there is something hosted on the accessed port.
